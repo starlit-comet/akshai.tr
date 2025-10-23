@@ -79,3 +79,65 @@ function backToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+// Contact form handling
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const submitButton = document.getElementById('submitButton');
+    const successMessage = document.getElementById('submitSuccessMessage');
+    const errorMessage = document.getElementById('submitErrorMessage');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Basic validation
+            if (!name || !email || !message) {
+                showError('Please fill in all required fields.');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError('Please enter a valid email address.');
+                return;
+            }
+
+            // Simulate form submission (replace with actual form handling)
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+
+            setTimeout(() => {
+                showSuccess();
+                contactForm.reset();
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send';
+            }, 1000);
+        });
+    }
+
+    function showSuccess() {
+        successMessage.classList.remove('d-none');
+        errorMessage.classList.add('d-none');
+        setTimeout(() => {
+            successMessage.classList.add('d-none');
+        }, 5000);
+    }
+
+    function showError(message) {
+        errorMessage.querySelector('.text-danger').textContent = message;
+        errorMessage.classList.remove('d-none');
+        successMessage.classList.add('d-none');
+        setTimeout(() => {
+            errorMessage.classList.add('d-none');
+        }, 5000);
+    }
+});

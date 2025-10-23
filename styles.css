@@ -4,6 +4,29 @@
 * Copyright 2013-2023 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
 */
+
+/* Font Awesome Icons - Local Implementation */
+.fas, .fab {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-bars:before { content: "☰"; }
+.fa-star:before { content: "★"; }
+.fa-plus:before { content: "+"; }
+.fa-xmark:before { content: "✕"; }
+.fa-arrow-up:before { content: "↑"; }
+.fa-twitter:before { content: "𝕏"; }
+.fa-linkedin-in:before { content: "in"; }
+.fa-instagram:before { content: "📷"; }
+.fa-telegram:before { content: "✈"; }
+.fa-github:before { content: "⚡"; }
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
